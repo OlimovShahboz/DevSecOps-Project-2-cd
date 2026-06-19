@@ -1,7 +1,7 @@
 pipeline {
  agent { label 'demo' }
  parameters {
-     password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your Gitlab password')
+     password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your GitHub password/token')
      string(name: 'IMAGETAG', defaultValue: '1', description: 'Please Enter the Image Tag to Deploy?')
      choice(name:'environment', choices: ['functional', 'integration', 'regression', 'uat', 'release' ] ,description: 'select where need to deploy')
  }
@@ -9,12 +9,12 @@ pipeline {
   stage('Deploy')
   {
     steps { 
-        git branch: 'springboot', credentialsId: 'GitlabCred', url: 'https://gitlab.com/learndevopseasy/devsecops/spingboot-cd-pipeline.git'
+        git branch: 'main', credentialsId: 'GitlabCred', url: 'https://github.com/OlimovShahboz/DevSecOps-Project-2-cd.git'
       dir ("./${params.environment}") {
-              sh "sed -i 's/image: adamtravis.*/image: adamtravis\\/democicd:$IMAGETAG/g' deployment.yml" 
+              sh "sed -i 's/image: shahboz01.*/image: shahboz01\\/democicd:$IMAGETAG/g' deployment.yml" 
 	    }
 	    sh 'git commit -a -m "New deployment for Build $IMAGETAG"'
-	    sh "git push https://scmlearningcentre:$PASSWD@gitlab.com/learndevopseasy/devsecops/spingboot-cd-pipeline.git"
+	    sh "git push https://OlimovShahboz:$PASSWD@github.com/OlimovShahboz/DevSecOps-Project-2-cd.git"
     }
   }
  }
