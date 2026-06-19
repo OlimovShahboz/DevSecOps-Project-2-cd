@@ -16,6 +16,6 @@ spec:
     spec:
       containers:
       - name: shahboz-devsecops-project-2-cd
-        image: shahboz01/democicd:2
+        image: shahboz01/democicd:3
         ports:
         - containerPort: 8080
