@@ -1,5 +1,5 @@
 pipeline {
- agent { label 'demo' }
+ agent any
  parameters {
      password(name: 'PASSWD', defaultValue: '', description: 'Please Enter your GitHub password/token')
      string(name: 'IMAGETAG', defaultValue: '1', description: 'Please Enter the Image Tag to Deploy?')
