@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: wezvatechdemo
+  name: shahboz-devsecops-project-2-cd
   labels:
-    app: wezvatechdemo
+    app: shahboz-devsecops-project-2-cd
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: wezvatechdemo
+      app: shahboz-devsecops-project-2-cd
   template:
     metadata:
       labels:
-        app: wezvatechdemo
+        app: shahboz-devsecops-project-2-cd
     spec:
       containers:
-      - name: wezvatechdemo
-        image: adamtravis/wezvatechbackend:9
+      - name: shahboz-devsecops-project-2-cd
+        image: shahboz01/democicd:9
         ports:
         - containerPort: 8080
